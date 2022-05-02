@@ -30,4 +30,15 @@ public class Utility {
     	}
     	return returnStr;
     }
+    
+    public static String getStoneDisplayHtml(int num, String str) {
+    	String returnStr = "";
+    	for (int i = 0; i < num; i++) {
+    		returnStr += str;
+    		if (i % 10 == 9) {
+    			returnStr += "<br>";
+    		}
+    	}
+    	return returnStr;
+    }
 }

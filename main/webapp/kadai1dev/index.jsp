@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Java基礎課題</title>
+<title>Java発展課題</title>
 <link href="../css/kadai1/styles.css" rel="stylesheet">
 </head>
 <body>
@@ -16,15 +16,12 @@
 
   <div class="info">
     <h2>条件</h2>
-    <p>
-      石の総数：<span>25個</span>
-    </p>
-    <p>
-      1度に取れる石の数：<span>3個</span>
-    </p>
-
     <form action="play.jsp">
-      <button class="btn" type="submit">始める</button>
+ 		<p>石の総数: <input type="number" name="allstone" value="25" min="1" required></p>
+ 		<p>1度にとれる石の数: <input type="number" name="onestone" value="3" min="1" required></p>
+ 		<p>プレイヤーの数: <input type="number" name="playeramount" value="2" min="2" max="26" required>
+ 		<p>石の記号: <input type="text" name="stonechar" value="●" required></p>
+      	<button class="btn" type="submit">始める</button>
     </form>
   </div>
 </body>

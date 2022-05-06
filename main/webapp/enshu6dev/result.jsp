@@ -3,7 +3,29 @@
   pageEncoding="UTF-8"%>
 <%
   //必要な処理を記述してください。
+  	String message;
+ 	String userID = (String) request.getParameter("userID");
+	String userName = (String) request.getParameter("userName");
+	int age = Integer.parseInt(request.getParameter("age"));
 
+	User user = new User(userID, userName, age);
+	
+	if (session.getAttribute("userList") == null) {
+		User[] userList = new User[5];
+  		session.setAttribute("userList", userList);
+	}
+	
+	User[] userList = (User[]) session.getAttribute("userList");
+	
+	for (int i = 0; i < 5; i++) {
+		if (userList[i] == null) {
+			userList[i] = user;
+			message = "ユーザーを登録しました";
+			break;
+		}
+		message = "これ以上ユーザーを登録できません";
+	}
+	
 %>
 <!DOCTYPE html>
 <html>

@@ -31,8 +31,8 @@ public class User {
 	public String returnUserInfo() {
 		String message = "";
 		message += "ユーザーID: " + this.userID;
-		message += "ユーザ名: " + this.userName;
-		message += "年齢: " + this.age;
+		message += "、ユーザ名: " + this.userName;
+		message += "、年齢: " + this.age;
 		return message;
 	}
 

@@ -3,27 +3,27 @@
   pageEncoding="UTF-8"%>
 <%
   //必要な処理を記述してください。
-  	String message;
- 	String userID = (String) request.getParameter("userID");
+  	request.setCharacterEncoding("UTF-8");
+  	String result = "これ以上ユーザーを登録できません";
+ 	String userID = (String) request.getParameter("userId");
 	String userName = (String) request.getParameter("userName");
 	int age = Integer.parseInt(request.getParameter("age"));
 
 	User user = new User(userID, userName, age);
 	
-	if (session.getAttribute("userList") == null) {
-		User[] userList = new User[5];
-  		session.setAttribute("userList", userList);
+	if (session.getAttribute("users") == null) {
+		User[] users = new User[5];
+  		session.setAttribute("users", users);
 	}
 	
-	User[] userList = (User[]) session.getAttribute("userList");
+	User[] users = (User[]) session.getAttribute("users");
 	
 	for (int i = 0; i < 5; i++) {
-		if (userList[i] == null) {
-			userList[i] = user;
-			message = "ユーザーを登録しました";
+		if (users[i] == null) {
+			users[i] = user;
+			result = "ユーザーを登録しました";
 			break;
 		}
-		message = "これ以上ユーザーを登録できません";
 	}
 	
 %>
@@ -76,7 +76,7 @@ a.button {
                 // todo:
                 // 現在は変数のみ定義している。
                 // Userクラスの情報取得用メソッドを呼んだ値をセットするように修正。
-                String msg = "";
+                String msg = tempUser.returnUserInfo();;
 
                 // ユーザー情報表示
                 out.println(msg);
